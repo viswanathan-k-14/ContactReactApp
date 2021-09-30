@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +20,8 @@
     "express": "^4.17.1",
     "express-validator": "^6.12.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.7"
+    "mongoose": "^6.0.7",
+    "react-toastify": "^8.0.3"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",
